@@ -1,0 +1,24 @@
+package rules;
+
+import br.unesp.rc.testeprojeto.modelo.Avaliacao;
+
+rule "VerificarNegativo"
+    when 
+        a: Avaliacao(sentimento.contains("0"))
+    then
+        a.setSentimento("Negativo");
+end
+
+rule "VerificarNeutro"
+    when 
+        a: Avaliacao(sentimento.contains("1"))
+    then
+        a.setSentimento("Neutro");
+end
+
+rule "VerificarPositivo"
+    when 
+        a: Avaliacao(sentimento.contains("2"))
+    then
+        a.setSentimento("Positivo");
+end
